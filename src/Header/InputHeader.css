@@ -1,0 +1,17 @@
+.InputHeaderOuter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.InputHeaderText {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000000;
+}
+
+.InputHeaderSubtext {
+  font-size: 13px;
+  color: #000000;
+}
