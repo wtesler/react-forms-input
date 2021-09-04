@@ -1,6 +1,6 @@
 {
   "name": "react-forms-input",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Basic form components for React",
   "scripts": {
     "build": "npm run clean && babel src --out-dir dist --copy-files",
@@ -24,11 +24,21 @@
   ],
   "babel": {
     "presets": [
-      "@babel/preset-env",
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "corejs": 3
+        }
+      ],
       "@babel/preset-react"
     ],
     "plugins": []
   },
+  "browserslist": [
+    ">0.25%",
+    "not dead"
+  ],
   "keywords": [
     "react",
     "forms",
