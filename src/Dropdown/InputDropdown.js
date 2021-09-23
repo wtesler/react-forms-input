@@ -1,10 +1,10 @@
 import React, {useState, useCallback, useEffect, useMemo} from 'react';
 import './InputDropdown.css';
 import {Icon} from "react-basic-icon";
-import caretImage from "../internal/image/caret.svg";
+import caretImage from "../Image/caret.svg";
 
 const InputDropdown = props => {
-  const {onChange, className, titleClass} = props;
+  const {onChange, className, titleClass, optionClass} = props;
 
   const [title, setTitle] = useState('');
   const [value, setValue] = useState('');
@@ -56,7 +56,7 @@ const InputDropdown = props => {
     const elements = [];
     for (const option of options) {
       const element = (
-        <div className='InputDropdownOption'
+        <div className={`${optionClass ? optionClass : ''} InputDropdownOption`}
              key={option}
              onClick={evt => onOptionClick(option, evt)}
              onMouseDown={evt => evt.preventDefault()}
