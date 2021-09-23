@@ -4,7 +4,7 @@ import {Icon} from "react-basic-icon";
 import caretImage from "../Image/caret.svg";
 
 const InputDropdown = props => {
-  const {onChange, className, titleClass, optionClass, contentClass} = props;
+  const {onChange, className, titleClass, optionClass, optionsClass, contentClass} = props;
 
   const [title, setTitle] = useState('');
   const [value, setValue] = useState('');
@@ -85,7 +85,7 @@ const InputDropdown = props => {
           {value}
           <Icon className={`InputDropdownCaret ${toggleClass}`} src={caretImage}/>
         </div>
-        <div className='InputDropdownOptions'>
+        <div className={`${optionsClass ? optionsClass : ''} InputDropdownOptions`}>
           {optionsElements}
         </div>
       </div>
