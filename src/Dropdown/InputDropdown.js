@@ -4,7 +4,7 @@ import {Icon} from "react-basic-icon";
 import caretImage from "../Image/caret.svg";
 
 const InputDropdown = props => {
-  const {onChange, className, titleClass, optionClass} = props;
+  const {onChange, className, titleClass, optionClass, contentClass} = props;
 
   const [title, setTitle] = useState('');
   const [value, setValue] = useState('');
@@ -76,7 +76,7 @@ const InputDropdown = props => {
   return (
     <div className={`InputDropdownOuter ${className ? className : ''}`}>
       <div className={`InputDropdownTitle ${titleClass ? titleClass : ''}`}>{title}</div>
-      <div className='InputDropdownContent'>
+      <div className={`${contentClass ? contentClass : ''} InputDropdownContent`}>
         <div className={`InputDropdownValue ${toggleClass}`}
              onClick={onValueClick}
              onBlur={onBlur}
