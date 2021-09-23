@@ -66,6 +66,7 @@
   border-right: 1px solid var(--form_input_dropdown_border_color);
   box-shadow: 0px 2px 3px 0 #00000047;
   overflow-y: auto;
+  z-index: 1;
 }
 
 .InputDropdownOption {
