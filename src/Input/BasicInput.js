@@ -16,7 +16,7 @@ const BasicInput = props => {
   const inputRef = useRef();
 
   useEffect(() => {
-    if (props.initialValue && props.initialValue !== initialValue) {
+    if ((props.initialValue !== null && props.initialValue !== undefined) && props.initialValue !== initialValue) {
       setValue(props.initialValue);
       setInitialValue(props.initialValue);
     }
