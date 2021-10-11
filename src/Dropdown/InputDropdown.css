@@ -59,7 +59,7 @@
 
 .InputDropdownOptions {
   width: 100%;
-  max-height: calc(var(--form_input_dropdown_height) * 5);
+  max-height: calc(var(--form_input_dropdown_height) * 6);
   position: absolute;
   top: 100%;
   border-left: 1px solid var(--form_input_dropdown_border_color);
