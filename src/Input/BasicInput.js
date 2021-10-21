@@ -2,7 +2,7 @@ import React, {useState, useCallback, useRef, useEffect, useMemo} from 'react';
 import './BasicInput.css';
 
 const BasicInput = props => {
-  const {maxChars, onChange, mapFunc, className, titleClass, textClass} = props;
+  const {maxChars, onChange, onKeyDown, mapFunc, className, titleClass, textClass} = props;
 
   const [title, setTitle] = useState('');
   const [value, setValue] = useState('');
@@ -76,7 +76,8 @@ const BasicInput = props => {
       autoComplete: 'on',
       maxLength: maxChars,
       style: style,
-      size: '1'
+      size: '1',
+      onKeyDown: onKeyDown
     }
 
     const textClassName = textClass ? textClass : '';
@@ -100,7 +101,7 @@ const BasicInput = props => {
         inputProps
       )
     );
-  }, [inputRef, name, type, value, placeholder, onInputChange, isMultiline, maxChars, minHeight, textClass]);
+  }, [inputRef, name, type, value, placeholder, onInputChange, onKeyDown, isMultiline, maxChars, minHeight, textClass]);
 
   return (
     <div className={`BasicInputOuter ${className ? className : ''}`}>
