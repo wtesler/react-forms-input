@@ -19,7 +19,11 @@ const BasicInput = props => {
     if ((props.initialValue !== null && props.initialValue !== undefined) && props.initialValue !== initialValue) {
       setValue(props.initialValue);
       setInitialValue(props.initialValue);
+    } else if (props.value) {
+      setValue(props.value);
     }
+
+
     if (props.title) {
       setTitle(props.title);
     }
