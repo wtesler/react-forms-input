@@ -4,7 +4,7 @@ import {Icon} from "react-basic-icon";
 import caretImage from "../Image/caret.svg";
 
 const InputDropdown = props => {
-  const {onChange, className, titleClass, optionClass, optionsClass, contentClass, valueClass} = props;
+  const {onChange, className, titleClass, optionClass, optionsClass, contentClass, valueClass, toggledValueClass} = props;
 
   const [title, setTitle] = useState('');
   const [value, setValue] = useState('');
@@ -69,21 +69,25 @@ const InputDropdown = props => {
     return elements;
   }, [options, onOptionClick, showOptions]);
 
-  const toggleClass = useMemo(() => {
+  const internalToggleClass = useMemo(() => {
     return showOptions ? 'InputDropdownToggled' : '';
   }, [showOptions]);
+
+  const externalToggleClass = useMemo(() => {
+    return showOptions && toggledValueClass ? toggledValueClass : '';
+  }, [showOptions, toggledValueClass]);
 
   return (
     <div className={`InputDropdownOuter ${className ? className : ''}`}>
       <div className={`InputDropdownTitle ${titleClass ? titleClass : ''}`}>{title}</div>
       <div className={`${contentClass ? contentClass : ''} InputDropdownContent`}>
-        <div className={`InputDropdownValue ${toggleClass} ${valueClass ? valueClass : ''}`}
+        <div className={`InputDropdownValue ${internalToggleClass} ${valueClass ? valueClass : ''} ${externalToggleClass}`}
              onClick={onValueClick}
              onBlur={onBlur}
              tabIndex={'1'}
         >
           {value}
-          <Icon className={`InputDropdownCaret ${toggleClass}`} src={caretImage}/>
+          <Icon className={`InputDropdownCaret ${internalToggleClass}`} src={caretImage}/>
         </div>
         <div className={`${optionsClass ? optionsClass : ''} InputDropdownOptions`}>
           {optionsElements}
